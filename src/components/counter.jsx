@@ -8,6 +8,7 @@ class Counter extends Component {
   render() {
     return (
       <div>
+        <button className="btn btn-secondary btn-sm m2">reset</button>
         {this.props.children}
         <span className={this.getBadgeClassNames()}>{this.formatText()}</span>
         <button className="btn btn-secondary  btn-sm" onClick={this.Increasevalue}>Increase</button>
