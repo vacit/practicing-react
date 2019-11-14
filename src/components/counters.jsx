@@ -31,9 +31,8 @@ class Counters extends Component {
     const counterToBeDeleted= this.state.counters[counterId-1];
 
     console.log(counterToBeDeleted.id)
-    this.state.counters.filter(item=>{
-      item.id===counterToBeDeleted.id? this.state.counter
-    });
+    const countersNew = this.state.counters.filter(item=>item.id!==counterToBeDeleted.id );
+    this.setState({counters:countersNew});
   }
 }
 
