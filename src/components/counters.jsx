@@ -16,8 +16,9 @@ class Counters extends Component {
         {this.state.counters.map(counter => (
           <Counter
             key={counter.id}
-            onDelete={()=>this.deleteCounter(counter.id)}
-            value={counter.value} id={counter.id}
+            onDelete={() => this.deleteCounter(counter.id)}
+            counter={counter}
+            
           >
             <h3>counter #{counter.id}</h3>
           </Counter>
@@ -26,14 +27,10 @@ class Counters extends Component {
     );
   }
 
-  deleteCounter=(counterId) =>{
-    
-    const counterToBeDeleted= this.state.counters[counterId-1];
-
-    console.log(counterToBeDeleted.id)
-    const countersNew = this.state.counters.filter(item=>item.id!==counterToBeDeleted.id );
-    this.setState({counters:countersNew});
-  }
+  deleteCounter = counterId => {
+    const counters = this.state.counters.filter(item => item.id !== counterId);
+    this.setState({ counters });
+  };
 }
 
 export default Counters;
